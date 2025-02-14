@@ -1,5 +1,7 @@
 # halostatue/fish-chezmoi
 
+[![Version][version]](https://github.com/halostatue/fish-chezmoi/releases)
+
 A mostly unopinionated [fish shell][fish shell] plugin for [chezmoi][chezmoi].
 It provides automatic completion and a function wrapper around `chezmoi` to not
 force a sub-shell when calling `chezmoi cd`.
@@ -59,9 +61,20 @@ example output
 
 ## Licence
 
-[MIT](LICENCE.md)
+[MIT](./LICENCE.md)
+
+## Change Log
+
+[CHANGELOG](./CHANGELOG.md)
+
+## Contributing
+
+- [Contributing](./CONTRIBUTING.md)
+- [Contributors](./CONTRIBUTORS.md)
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
 
 [fish shell]: https://fishshell.com 'friendly interactive shell'
 [fisher]: https://github.com/jorgebucaran/fisher
 [fish]: https://github.com/fish-shell/fish-shell
 [chezmoi]: https://www.chezmoi.io
+[version]: https://img.shields.io/github/tag/halostatue/fish-chezmoi.svg?label=Version
