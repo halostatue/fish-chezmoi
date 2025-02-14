@@ -22,8 +22,9 @@ This can be set to one of the following values:
 If `chezmoi` is newer than a local `vendor_completions.d/chezmoi.fish`, the
 local completion file will be removed.
 
-> [!NOTE] The local completion path is
-> `$XDG_DATA_HOME/fish/vendor_completions.d`, or
+> [!NOTE]
+>
+> The local completion path is `$XDG_DATA_HOME/fish/vendor_completions.d`, or
 > `$HOME/.local/share/fish/vendor_completions.d` if `$XDG_DATA_HOME` is unset.
 
 ## `chezmoi cd` and `chezmoi cdsh`
