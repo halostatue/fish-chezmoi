@@ -21,7 +21,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 #v2.0.0
+      - uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff #v3.0.0
       - uses: fish-shop/install-fish-shell@632c98f13e7c5f9d029e2307d5927932e44d2a40 #v1.0.50
       - uses: fish-shop/indent-check@994d6a2d937dc3922f6ec6b89307b74556852bc7 #v2.2.39
       - uses: fish-shop/syntax-check@57aade2a0622b4a5c18bf304c89a747cd8641360 #v2.2.38
