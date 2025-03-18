@@ -17,15 +17,19 @@ jobs:
       contents: read
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
+        with:
+          egress-policy: audit
+
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
         with:
           persist-credentials: false
 
-      - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 #v2.0.0
-      - uses: fish-shop/install-fish-shell@632c98f13e7c5f9d029e2307d5927932e44d2a40 #v1.0.50
-      - uses: fish-shop/indent-check@994d6a2d937dc3922f6ec6b89307b74556852bc7 #v2.2.39
-      - uses: fish-shop/syntax-check@57aade2a0622b4a5c18bf304c89a747cd8641360 #v2.2.38
-      - uses: fish-shop/install-plugin@810c3dd023e69cca5c4c4e09f48cbe581912f62d #v2.3.40
+      - uses: fish-shop/install-fish-shell@ef880a0291cb5c708b09e6527e4952c16e81cf5e #v1.0.45
+      - uses: fish-shop/indent-check@aae7bd013b4d6bcef5549cc992997e66ae4de397 #v2.2.34
+      - uses: fish-shop/syntax-check@990dde2550f7edc94c21b470a598aef362e29dab #v2.2.33
+      - uses: fish-shop/install-plugin@669123fa5a63a74da4f5bff881c6dbedcb54a49d #v2.3.35
         with:
           plugin-manager: fisher
           plugins: IlanCosman/clownfish
