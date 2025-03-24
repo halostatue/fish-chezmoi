@@ -26,11 +26,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: fish-shop/install-fish-shell@ef880a0291cb5c708b09e6527e4952c16e81cf5e #v1.0.45
-      - uses: fish-shop/indent-check@aae7bd013b4d6bcef5549cc992997e66ae4de397 #v2.2.34
-      - uses: fish-shop/syntax-check@990dde2550f7edc94c21b470a598aef362e29dab #v2.2.33
-      - uses: fish-shop/install-plugin@669123fa5a63a74da4f5bff881c6dbedcb54a49d #v2.3.35
+      - uses: fish-shop/install-fish-shell@1bb6cfa6dcf294906be7311b6ae4585ea011418e #v1.0.52
+      - uses: fish-shop/indent-check@a386bc9dc60434d70a6df984e0568d021994cff3 #v2.2.41
+      - uses: fish-shop/syntax-check@1cc2a9c5b7b6b3db4cc4c91df95f362b070e9f25 #v2.2.40
+      - uses: fish-shop/install-plugin@4a3d1755325ac05db70661a39f53c07c702eb3ad #v2.3.42
         with:
           plugin-manager: fisher
           plugins: IlanCosman/clownfish
-      - uses: fish-shop/run-fishtape-tests@30e980b667c509985a174350062ba0fcce12dc12 #v2.3.38
+      - uses: fish-shop/run-fishtape-tests@b006aa7502e4801361f37c43de8fbc96eaa098a8 #v2.3.40
