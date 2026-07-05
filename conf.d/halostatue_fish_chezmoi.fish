@@ -1,22 +1,24 @@
-# @halostatue/fish-chezmoi/conf.d/halostatue_fish_chezmoi.fish:v1.1.0
+# @halostatue/fish-chezmoi/conf.d/halostatue_fish_chezmoi.fish:v2.0.0
 
 function _halostatue_fish_chezmoi_setup
     status --is-interactive
     or return
 
-    switch $halostatue_fish_chezmoi_completion_mode
-        case never
-            return
-    end
+    test $halostatue_fish_chezmoi_completion_mode = never
+    and return
 
     set chezmoi (command --search chezmoi)
     or return
 
-    if set --query XDG_DATA_HOME
-        set --function local_completions $XDG_DATA_HOME
-    else
-        set --function local_completions $HOME/.local/share
+    if test $halostatue_fish_chezmoi_completion_mode = source
+        $chezmoi completion fish | source
+        return
     end
+
+    set --function local_completions $HOME/.local/share
+
+    set --query XDG_DATA_HOME
+    and set local_completions $XDG_DATA_HOME
 
     set local_completions $local_completions/fish/vendor_completions.d
 
@@ -24,27 +26,21 @@ function _halostatue_fish_chezmoi_setup
         rm -f $local_completions/chezmoi.fish
     end
 
-    set --function completion (
-      path filter --type file $fish_complete_path/chezmoi.fish
-    )[1]
+    set --function completion (path filter --type file $fish_complete_path/chezmoi.fish)
 
-    if not set --query completion[1] || test $chezmoi -nt $completion
+    if not set --query completion[1] || test $chezmoi -nt $completion[1]
         set --function refresh 1
     end
 
     switch $halostatue_fish_chezmoi_completion_mode
-        case source
-            $chezmoi completion fish | source
         case save
-            if set --query refresh
-                mkdir -p $local_completions
-                and $chezmoi completion fish >$local_completions/chezmoi.fish
-            end
+            set --query refresh
+            and mkdir -p $local_completions
+            and $chezmoi completion fish >$local_completions/chezmoi.fish
 
         case default '' '*'
-            if set --query refresh
-                $chezmoi completion fish | source
-            end
+            set --query refresh
+            and $chezmoi completion fish | source
     end
 end
 
